@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Power Matrix Tool</title>
+
+<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/brain.js"></script>
+<script src="assets/js/validate.js"></script>
+</head>
+
+<body onLoad="setVisibility('display', 'none');">
+<header>
+    <h2>Power Matrix Tool</h2>
+    <p>Power requirement for your project</p>
+</header>
+
+<form id="powerCalculator" method="post">
+    <div class="table-wrapper">
+    <table>
+      <tbody>
+      	<tr>
+          <td width=300px><h4>Type of Power Plant</h4></td>
+          <td colspan="2">
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="650" id="pp0">
+                <label for="pp0">Argus Alpha 650W</label>
+                </div>
+                
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="1200" id="pp1">
+                <label for="pp1">Argus Alpha 1.2kW</label>
+                </div>
+                
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="1800" id="pp2" checked>
+                <label for="pp2">Argus Alpha 1.8kW</label>
+                </div>
+                
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="1801" id="pp3">
+                <label for="pp3">Eltek 1.8kW</label>
+                </div>
+                
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="2000" id="pp4">
+                <label for="pp4">Argus Alpha 2kW</label>
+                </div>
+                
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="3600" id="pp5">
+                <label for="pp5">Argus Alpha 3.6kW</label>
+                </div>
+                
+                <div class="4u 12u$(small)">
+                <input type="radio" name="PowerPlant" value="4000" id="pp6">
+                <label for="pp6">Argus Alpha 4kW</label>
+                </div>
+          </td>
+        </tr>
+        <tr>
+          <td><h4>Current Load</h4></td>
+          <td><div class="6u 12u$(xsmall)"><input type="number" id="current" name="current" value placeholder="operational current (amp)"></div></td>          
+        </tr>
+        <tr>
+          <td><h4>Additional Radio</h4></td>
+          <td><div class="6u 12u$(xsmall)"><input type="number" id="radio_added" name="radio_added" value placeholder="# of additional equipment (unit)"></div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+          <input type="submit" class="button special" onclick="return recommendation()" value="Calculate">
+          <input type="reset" class="button" value="Reset" onclick="setVisibility('display', 'none');">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</form>
+
+
+<div id="display">
+<h3>Recommendation</h3>
+<dl>
+<dt>Rectifier</dt>
+<dd><div id="rectifier"></div></dd>
+<dt>Battery</dt>
+<dd>
+<div class="table-wrapper">
+    <table class="alt">
+    	<tbody>
+      	<tr>
+          <td>
+          
+          </td>
+          </tr>
+          </tbody>
+    </table>
+</div>
+</dd>
+</dl>
+
+
+</div>
+
+</body>
+</html>
